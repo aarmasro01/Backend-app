@@ -23,7 +23,7 @@ export class ProductModel {
       const sql = `
         SELECT p.*, c.nombreCategoria AS categoria, e.nombreEstadoProducto AS estado
         FROM producto p
-        JOIN categoriaMenu c ON p.idCategoriamenu = c.idCategoriaMenu
+        JOIN categoriaMenu c ON p.idCategoriaMenu = c.idCategoriaMenu
         JOIN estadoproducto e ON p.idEstadoProducto = e.idEstadoProducto
         WHERE p.idProducto = ?
       `;
