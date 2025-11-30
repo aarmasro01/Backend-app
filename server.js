@@ -23,7 +23,7 @@ class App {
 
   setupMiddlewares() {
     this.app.use(cors({
-  origin: ['http://127.0.0.1:5500', 'http://localhost:8100'],
+  origin: ['http://127.0.0.1:5500', 'http://localhost:8100', 'https://la-olla-arequipena-app.onrender.com'],
   credentials: true
 }));
 
