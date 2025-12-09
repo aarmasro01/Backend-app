@@ -77,7 +77,7 @@ export class ProductModel {
 
   static async updateEstado(idProducto, idEstadoProducto) {
     try {
-      const sql = 'UPDATE Producto SET idEstadoProducto = ? WHERE idProducto = ?';
+      const sql = 'UPDATE producto SET idEstadoProducto = ? WHERE idProducto = ?';
       const [result] = await db.query(sql, [idEstadoProducto, idProducto]);
       return result.affectedRows > 0;
     } catch (err) {
@@ -85,6 +85,6 @@ export class ProductModel {
       throw err;
     }
   }
-  
+
 }
 // ...existing code...
