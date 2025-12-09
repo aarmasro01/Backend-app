@@ -97,6 +97,26 @@ export class ProductController {
       res.status(500).json({ error: 'Error al eliminar producto' });
     }
   }
+
+  async actualizarEstadoProducto(req, res) {
+    try {
+      const { id } = req.params;
+      const { idEstadoProducto } = req.body;
+
+      if (!idEstadoProducto) {
+        return res.status(400).json({ error: 'El idEstadoProducto es obligatorio' });
+      }
+
+      const updated = await ProductModel.updateEstado(id, idEstadoProducto);
+      if (!updated) return res.status(404).json({ error: 'Producto no encontrado o estado no actualizado' });
+
+      res.json({ message: '✅ Estado del producto actualizado' });
+    } catch (error) {
+      console.error('Error al actualizar estado del producto:', error);
+      res.status(500).json({ error: 'Error al actualizar estado del producto' });
+    }
+  }
+  
 }
 
 export const productController = new ProductController();

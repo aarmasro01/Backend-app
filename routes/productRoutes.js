@@ -16,6 +16,7 @@ export class ProductRoutes {
     this.router.post('/create', upload.single('imagenProducto'), (req, res) => productController.crearProducto(req, res));
     this.router.get('/:id', (req, res) => productController.obtenerProductoPorId(req, res));
     this.router.put('/:id', upload.single('imagenProducto'), (req, res) => productController.actualizarProducto(req, res));
+    this.router.put('/:id/estado', (req, res) => productController.actualizarEstadoProducto(req, res));
     this.router.delete('/:id', (req, res) => productController.eliminarProducto(req, res));
   }
 
