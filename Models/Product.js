@@ -74,5 +74,17 @@ export class ProductModel {
       throw err;
     }
   }
+
+  static async updateEstado(idProducto, idEstadoProducto) {
+    try {
+      const sql = 'UPDATE Producto SET idEstadoProducto = ? WHERE idProducto = ?';
+      const [result] = await db.query(sql, [idEstadoProducto, idProducto]);
+      return result.affectedRows > 0;
+    } catch (err) {
+      console.error('ProductModel.updateEstado error:', err);
+      throw err;
+    }
+  }
+  
 }
 // ...existing code...
